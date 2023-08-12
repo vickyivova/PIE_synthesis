@@ -9,6 +9,7 @@ import time
 import torch
 import wandb
 from torch.utils.data import ConcatDataset
+import os
 
 from TrainingInterfaces.Text_to_Spectrogram.ToucanTTS.ToucanTTS import ToucanTTS
 from TrainingInterfaces.Text_to_Spectrogram.ToucanTTS.toucantts_train_loop_arbiter import train_loop
@@ -39,6 +40,8 @@ def run(gpu_id, resume_checkpoint, finetune, model_dir, resume, use_wandb, wandb
     # =======================
     # =    Abkhaz Data      =
     # =======================
+    current_directory = os.getcwd()
+    print(current_directory)
     abkhaz_datasets = list()
     abkhaz_datasets.append(prepare_fastspeech_corpus(transcript_dict=build_path_to_transcript_dict_abkhaz(),
                                                      corpus_dir="../../../abkhaz_training",
