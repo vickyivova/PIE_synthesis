@@ -43,7 +43,7 @@ else:
   
 custom_input = st.text_input("Enter text to synthesize", "")
   
-if button_value:
+if button_input:
   user_input = button_input
 else:
   user_input = custom_input
