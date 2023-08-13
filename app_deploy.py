@@ -41,14 +41,8 @@ elif st.button("Your daughter has come home."):
 else:
   button_input = ""   
   
-custom_input = st.text_input("Enter text to synthesize", "")
-  
-if button_input:
-  user_input = button_input
-else:
-  user_input = custom_input
-
-    
+user_input = st.text_input("Enter text to synthesize", value=button_input)
+ 
 file_name = "synth_app_audios/default_synth_web_app.wav"
 
 selected_model = st.radio("Select which model to use: ", ("Pre-trained model", "Fine-tuned model"))
