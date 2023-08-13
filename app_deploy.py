@@ -49,11 +49,11 @@ if st.button("Synthesize"):
 		synthesized_text = custom_app(file_name, user_input, model_id=model_input)
 		st.success("Text synthesized!")
 		audio_file = open(file_name, "rb")
-	  audio_bytes  = audio_file.read()
+		audio_bytes  = audio_file.read()
 
 		#st.audio(synthesized_text, format="audio/wav")
-    st.audio(audio_bytes, format="audio/wav")
+		st.audio(audio_bytes, format="audio/wav")
 
 	else:
-    st.warning("Please enter valid PIE text.")
+		st.warning("Please enter valid PIE text.")
 
