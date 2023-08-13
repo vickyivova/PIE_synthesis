@@ -33,11 +33,12 @@ st.write("Bring to life the ancient extinct language from which most European la
 
 user_input = ""
 if st.button("The King and the God poem"):
-  button_input = "Tór h₃rēǵs h₁ést. Só h₂népotlos h₁ést. Só h₃rēǵs suHnúm welh₁t."
+  user_input = "Tór h₃rēǵs h₁ést. Só h₂népotlos h₁ést. Só h₃rēǵs suHnúm welh₁t."
 elif st.button("Your daughter has come home."):
-  button_input = "Dʰugh₂tēr toi dōm gʷegʷome."
-  
-user_input = st.text_input("Enter text to synthesize", value=button_input)
+  user_input = "Dʰugh₂tēr toi dōm gʷegʷome."
+elif st.button("Enter your own!"):
+  user_input = st.text_input("Enter PIE text: ". "")
+
  
 file_name = "synth_app_audios/default_synth_web_app.wav"
 
