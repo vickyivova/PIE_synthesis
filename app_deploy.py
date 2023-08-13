@@ -31,25 +31,16 @@ set_png_as_page_bg("/mount/src/pie_synthesis/app_background.png")
 st.title("Synthesise PIE")
 st.write("Bring to life the ancient extinct language from which most European languages evolved.\n Write down a Proto-Indo-European sentence in PIE standard notation or choose one of the sample sentences. You can choose the model behind the synthesis: one trained on European languages (pre-trained) or one further fine-tuned on Abkhaz (fine-tuned). Hit 'Synthesise' and wait for your synthesised audio!")
 
-
-example_input = {
-    "The King and the God poem": "Tór h₃rēǵs h₁ést. Só h₂népotlos h₁ést. Só h₃rēǵs suHnúm welh₁t.",
-    "Your daughter has come home.": "Dʰugh₂tēr toi dōm gʷegʷome.",
-}
-
-for label, input_value in example_input.items():
-    if st.button(label):
-        input_to_fill = input_value
-        st.write(input_to_fill)
-    else:
-        input_to_fill = ""
-        
 text_input = st.text_input("Enter text to synthesize", "")
 
-if input_to_fill:
-    user_input = input_to_fill
-else: 
-    user_input = text_input
+if st.button("The King and the God poem"):
+  input_to_fill = "Tór h₃rēǵs h₁ést. Só h₂népotlos h₁ést. Só h₃rēǵs suHnúm welh₁t."
+  st.write(input_to_fill)
+elif st.button("Your daughter has come home."):
+  input_to_fill = "Dʰugh₂tēr toi dōm gʷegʷome."
+else:        
+  input_to_fill = text_input
+
     
 file_name = "synth_app_audios/default_synth_web_app.wav"
 
