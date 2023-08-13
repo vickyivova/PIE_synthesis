@@ -39,9 +39,11 @@ file_name = "synth_app_audios/" + file_name + ".wav"
 meta_button = st.button("Select pretrained model")
 multiab_button = st.button("Select fine-tuned model")
 
-if meta_button:
+selected_model = st.radio("Select which model to use: ", ("Pre-trained model", "Fine-tuned model"))
+
+if selected_model == "Pre-trained model":
     model_input = "Meta"
-elif multiab_button:
+elif selected_model == "Fine-tuned model":
     model_input = "MultiAbkhaz"
 else:
     model_input = "MultiAbkhaz"
