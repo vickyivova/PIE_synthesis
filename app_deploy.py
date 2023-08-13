@@ -41,9 +41,11 @@ for label, input_value in example_input.items():
     if st.button(label):
         input_to_fill = input_value
 
-user_input = st.text_input("Enter text to synthesize", "")
 if input_to_fill:
     user_input = input_to_fill
+else: 
+    user_input = st.text_input("Enter text to synthesize", "")
+    
 file_name = "synth_app_audios/default_synth_web_app.wav"
 
 selected_model = st.radio("Select which model to use: ", ("Pre-trained model", "Fine-tuned model"))
