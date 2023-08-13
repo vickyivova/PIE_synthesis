@@ -40,6 +40,7 @@ example_input = {
 for label, input_value in example_input.items():
     if st.button(label):
         input_to_fill = input_value
+        st.write("input_value") 
     else:
         input_to_fill = ""
         
