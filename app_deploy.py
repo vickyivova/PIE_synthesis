@@ -44,30 +44,21 @@ else:
 
 
 user_input = ""
+button_input = ""
 if st.button("The King and the God poem"):
-  user_input = "Tór h₃rēǵs h₁ést. Só h₂népotlos h₁ést. Só h₃rēǵs suHnúm welh₁t."
-  if st.button("Synthesise"):
-    synthesized_text = custom_app(file_name, user_input, model_id=model_input)
-    st.success("Text synthesised!")
-    audio_file = open(file_name, "rb")
-    audio_bytes  = audio_file.read()
-    st.audio(audio_bytes, format="audio/wav")
-elif st.button("Your daughter has come home."):
-  user_input = "Dʰugh₂tēr toi dōm gʷegʷome."
-  if st.button("Synthesise"):
-    synthesized_text = custom_app(file_name, user_input, model_id=model_input)
-    st.success("Text synthesised!")
-    audio_file = open(file_name, "rb")
-    audio_bytes  = audio_file.read()
-    st.audio(audio_bytes, format="audio/wav")
-else:
-  user_input = st.text_input("Enter PIE text", ""):
-  if st.button("Synthesise"):
-    synthesized_text = custom_app(file_name, user_input, model_id=model_input)
-    st.success("Text synthesised!")
-    audio_file = open(file_name, "rb")
-    audio_bytes  = audio_file.read()
-    st.audio(audio_bytes, format="audio/wav")
+  button_input = "Tór h₃rēǵs h₁ést. Só h₂népotlos h₁ést. Só h₃rēǵs suHnúm welh₁t."
+if st.button("Your daughter has come home."):
+  button_input = "Dʰugh₂tēr toi dōm gʷegʷome."
+
+if button_input==False:
+  user_input = st.text_input("Enter PIE text:")
+  
+if st.button("Synthesise"):
+  synthesized_text = custom_app(file_name, user_input, model_id=model_input)
+  st.success("Text synthesised!")
+  audio_file = open(file_name, "rb")
+  audio_bytes  = audio_file.read()
+  st.audio(audio_bytes, format="audio/wav")
 
 
 
