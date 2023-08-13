@@ -33,14 +33,14 @@ st.write("Bring to life the ancient extinct language from which most European la
 
 
 example_input = {
-    "The King and the God poem": "example",
+    "The King and the God poem": "Tór h3re?s h1ést. Só h2népotlos h1ést. Só h3re?s suHnúm welh1t.",
     "Your daughter has come home.": "D?ugh2ter toi dom g?eg?ome.",
 }
 
 for label, input_value in example_input.items():
     if st.button(label):
         input_to_fill = input_value
-        st.write(input_value) 
+        st.write(input_to_fill)
     else:
         input_to_fill = ""
         
