@@ -14,9 +14,10 @@ from Preprocessing.AudioPreprocessor import AudioPreprocessor
 from Preprocessing.TextFrontend import ArticulatoryCombinedTextFrontend
 from Preprocessing.TextFrontend import get_language_id
 from TrainingInterfaces.Spectrogram_to_Embedding.StyleEmbedding import StyleEmbedding
-from Utility.storage_config import MODELS_DIR
+#from Utility.storage_config import MODELS_DIR
 from Utility.utils import float2pcm
 
+MODELS_DIR = "/mount/src/pie_synthesis/Models"
 
 class ToucanTTSInterface(torch.nn.Module):
 

@@ -57,12 +57,6 @@ def the_raven(version, model_id="Meta", exec_device="cpu", speed_over_quality=Tr
                
 def custom_app(file_name, sentence, version="MetaBaseline", model_id="MultiAbkhaz", exec_device="cpu", speed_over_quality=True, speaker_reference=None):
     os.makedirs("audios", exist_ok=True)
-    #file_name = input("\What should the file be named? (or 'exit')\n")
-    #if file_name == "exit":
-        #sys.exit()
-    #sentence = input("\nWhat should I say? (or 'exit')\n")
-    #if sentence == "exit":
-        #sys.exit()
     read_texts(model_id=model_id,
                 sentence=sentence,
                 filename=file_name,
