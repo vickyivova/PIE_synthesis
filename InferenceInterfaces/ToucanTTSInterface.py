@@ -282,6 +282,7 @@ class ToucanTTSInterface(torch.nn.Module):
         if increased_compatibility_mode:
             wav = [val for val in wav.numpy() for _ in (0, 1)]  # doubling the sampling rate for better compatibility (24kHz is not as standard as 48kHz)
             soundfile.write(file=file_location, data=float2pcm(wav), samplerate=48000, subtype="PCM_16")
+            wav =float2pcm(wav)
         else:
             soundfile.write(file=file_location, data=wav, samplerate=24000)
         

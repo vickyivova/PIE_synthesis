@@ -35,10 +35,6 @@ user_input = st.text_input("Enter text to synthesize", "")
 file_name = "default_synth_web_app"
 file_name = "synth_app_audios/" + file_name + ".wav"
 
-# Button creation
-meta_button = st.button("Select pretrained model")
-multiab_button = st.button("Select fine-tuned model")
-
 selected_model = st.radio("Select which model to use: ", ("Pre-trained model", "Fine-tuned model"))
 
 if selected_model == "Pre-trained model":
