@@ -54,7 +54,7 @@ if st.button("Synthesize"):
 		#audio_file = open(file_name, "rb")
 		#audio_bytes  = audio_file.read()
 
-		st.audio(synthesised_text, format="audio/wav")
+		st.audio(synthesized_text, format="audio/wav")
 
 	else:
         	st.warning("Please enter valid PIE text.")
