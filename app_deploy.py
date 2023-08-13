@@ -34,10 +34,10 @@ st.write("Bring to life the ancient extinct language from which most European la
 
 if st.button("The King and the God poem"):
   button_input = "Tór h₃rēǵs h₁ést. Só h₂népotlos h₁ést. Só h₃rēǵs suHnúm welh₁t."
-  st.write(input_to_fill)
+  st.write(button_input)
 elif st.button("Your daughter has come home."):
   button_input = "Dʰugh₂tēr toi dōm gʷegʷome."
-  st.write(input_to_fill)
+  st.write(button_input)
 else:
   button_input = ""   
   
