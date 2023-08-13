@@ -30,10 +30,9 @@ set_png_as_page_bg("/mount/src/pie_synthesis/app_background.png")
 
 st.title('Synthesise PIE')
 
-# User input text box
+
 user_input = st.text_input("Enter text to synthesize", "")
-file_name = "default_synth_web_app"
-file_name = "synth_app_audios/" + file_name + ".wav"
+file_name = "synth_app_audios/default_synth_web_app.wav"
 
 selected_model = st.radio("Select which model to use: ", ("Pre-trained model", "Fine-tuned model"))
 
@@ -44,15 +43,16 @@ elif selected_model == "Fine-tuned model":
 else:
     model_input = "MultiAbkhaz"
 
-# Synthesize button
+
 if st.button("Synthesize"):
 	if user_input:
 		synthesized_text = custom_app(file_name, user_input, model_id=model_input)
 		st.success("Text synthesized!")
-		#audio_file = open(file_name, "rb")
-		#audio_bytes  = audio_file.read()
+		audio_file = open(file_name, "rb")
+		audio_bytes  = audio_file.read()
 
-		st.audio(synthesized_text, format="audio/wav")
+		#st.audio(synthesized_text, format="audio/wav")
+    st.audio(audio_bytes, format="audio/wav")
 
 	else:
         	st.warning("Please enter valid PIE text.")
