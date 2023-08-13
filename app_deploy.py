@@ -28,10 +28,22 @@ def set_png_as_page_bg(png_file):
 
 set_png_as_page_bg("/mount/src/pie_synthesis/app_background.png")
 
-st.title('Synthesise PIE')
+st.title("Synthesise PIE")
+st.write("Bring to life the ancient extinct language from which most European languages evolved.\n Write down a Proto-Indo-European sentence in PIE standard notation or choose one of the sample sentences. You can choose the model behind the synthesis: one trained on European languages (pre-trained) or one further fine-tuned on Abkhaz (fine-tuned). Hit 'Synthesise' and wait for your synthesised audio!")
 
+
+example_input = {
+    "The King and the God poem": "Tór h3r??s h1ést. Só h2népotlos h1ést. Só h3r??s suHnúm welh1t.",
+    "Your daughter has come home.": "D?ugh2t?r toi d?m g?eg?ome.",
+}
+
+for label, input_value in example_input.items():
+    if st.button(label):
+        input_to_fill = input_value
 
 user_input = st.text_input("Enter text to synthesize", "")
+if input_to_fill:
+    user_input = input_to_fill
 file_name = "synth_app_audios/default_synth_web_app.wav"
 
 selected_model = st.radio("Select which model to use: ", ("Pre-trained model", "Fine-tuned model"))
@@ -44,10 +56,10 @@ else:
     model_input = "MultiAbkhaz"
 
 
-if st.button("Synthesize"):
+if st.button("Synthesise"):
 	if user_input:
 		synthesized_text = custom_app(file_name, user_input, model_id=model_input)
-		st.success("Text synthesized!")
+		st.success("Text synthesised!")
 		audio_file = open(file_name, "rb")
 		audio_bytes  = audio_file.read()
 
