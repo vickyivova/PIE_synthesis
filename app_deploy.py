@@ -52,6 +52,8 @@ if st.button("Your daughter has come home."):
 
 if button_input==False:
   user_input = st.text_input("Enter PIE text:")
+else:
+  user_input = button_input
   
 if st.button("Synthesise"):
   synthesized_text = custom_app(file_name, user_input, model_id=model_input)
