@@ -284,6 +284,10 @@ class ToucanTTSInterface(torch.nn.Module):
             soundfile.write(file=file_location, data=float2pcm(wav), samplerate=48000, subtype="PCM_16")
         else:
             soundfile.write(file=file_location, data=wav, samplerate=24000)
+        
+        return wav
+            
+        
 
     # def read_aloud(self,
     #                text,

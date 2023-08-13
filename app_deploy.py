@@ -4,6 +4,7 @@ import os
 import sys
 import torch
 import base64
+import random
 from run_text_to_file_reader import read_texts,custom_app
 
 def get_base64_of_bin_file(bin_file):
@@ -31,19 +32,29 @@ st.title('Synthesise PIE')
 
 # User input text box
 user_input = st.text_input("Enter text to synthesize", "")
-file_name = st.text_input("Enter file name (no extension)", "")
+file_name = "default_synth_web_app"
 file_name = "synth_app_audios/" + file_name + ".wav"
-model_input = st.text_input("Enter model ID (Meta/MultiAbkhaz)", "")
+
+# Button creation
+meta_button = st.button("Select pretrained model")
+multiab_button = st.button("Select fine-tuned model")
+
+if meta_button:
+    model_input = "Meta"
+elif multiab_button:
+    model_input = "MultiAbkhaz"
+else:
+    model_input = "MultiAbkhaz"
 
 # Synthesize button
 if st.button("Synthesize"):
 	if user_input:
-		synthesized_text = custom_app(file_name, user_input, model_id=model_input)  # Call your synthesis function
-		st.success("Text synthesized and stored successfully.")
-		audio_file = open(file_name, "rb")
-		audio_bytes  = audio_file.read()
+		synthesized_text = custom_app(file_name, user_input, model_id=model_input)
+		st.success("Text synthesized!")
+		#audio_file = open(file_name, "rb")
+		#audio_bytes  = audio_file.read()
 
-		st.audio(audio_bytes, format="audio/wav")
+		st.audio(synthesised_text, format="audio/wav")
 
 	else:
         	st.warning("Please enter valid PIE text.")
