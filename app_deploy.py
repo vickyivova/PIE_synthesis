@@ -38,6 +38,7 @@ if st.button("The King and the God poem"):
   st.write(input_to_fill)
 elif st.button("Your daughter has come home."):
   input_to_fill = "Dʰugh₂tēr toi dōm gʷegʷome."
+  st.write(input_to_fill)
 else:        
   input_to_fill = text_input
 
