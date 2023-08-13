@@ -52,7 +52,7 @@ if st.button("Your daughter has come home."):
 
 if button_input==False:
   user_input = st.text_input("Enter PIE text:")
-else:
+elif button_input==True:
   user_input = button_input
   
 if st.button("Synthesise"):
