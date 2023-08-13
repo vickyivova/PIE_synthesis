@@ -37,7 +37,7 @@ if st.button("The King and the God poem"):
 elif st.button("Your daughter has come home."):
   user_input = "Dʰugh₂tēr toi dōm gʷegʷome."
 elif st.button("Enter your own!"):
-  user_input = st.text_input("Enter PIE text: ". "")
+  user_input = st.text_input("Enter PIE text: ", "")
 
  
 file_name = "synth_app_audios/default_synth_web_app.wav"
