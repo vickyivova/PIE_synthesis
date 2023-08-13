@@ -33,8 +33,8 @@ st.write("Bring to life the ancient extinct language from which most European la
 
 
 example_input = {
-    "The King and the God poem": "T�r h3re?s h1�st. S� h2n�potlos h1�st. S� h3re?s suHn�m welh1t.",
-    "Your daughter has come home.": "D?ugh2ter toi dom g?eg?ome.",
+    "The King and the God poem": "Tór h₃rēǵs h₁ést. Só h₂népotlos h₁ést. Só h₃rēǵs suHnúm welh₁t.",
+    "Your daughter has come home.": "Dʰugh₂tēr toi dōm gʷegʷome.",
 }
 
 for label, input_value in example_input.items():
