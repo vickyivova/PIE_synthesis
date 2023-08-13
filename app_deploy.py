@@ -40,11 +40,15 @@ example_input = {
 for label, input_value in example_input.items():
     if st.button(label):
         input_to_fill = input_value
+    else:
+        input_to_fill = ""
+        
+text_input = st.text_input("Enter text to synthesize", "")
 
 if input_to_fill:
     user_input = input_to_fill
 else: 
-    user_input = st.text_input("Enter text to synthesize", "")
+    user_input = text_input
     
 file_name = "synth_app_audios/default_synth_web_app.wav"
 
