@@ -60,8 +60,8 @@ elif st.button("Your daughter has come home."):
     audio_file = open(file_name, "rb")
     audio_bytes  = audio_file.read()
     st.audio(audio_bytes, format="audio/wav")
-elif st.text_input("Enter PIE text", ""):
-  user_input = "Dʰugh₂tēr toi dōm gʷegʷome."
+else:
+  user_input = st.text_input("Enter PIE text", ""):
   if st.button("Synthesise"):
     synthesized_text = custom_app(file_name, user_input, model_id=model_input)
     st.success("Text synthesised!")
