@@ -1,4 +1,6 @@
 # PIE_synthesis 📜🏺🗡️
+**Visit the web app:** https://piesynthesis.streamlit.app/
+
 This repository is almost entirely comprised of the original code of IMS-Toucan by Florian Lux and Julia Koch and Ngoc Thang Vu. 
 The changes made include:
 1. Adding preprocessing methods for Abkhaz and Proto-Indo-European
