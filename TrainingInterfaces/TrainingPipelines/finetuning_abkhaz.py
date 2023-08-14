@@ -3,6 +3,7 @@ Example script for fine-tuning the pretrained model to your own data.
 
 Comments in ALL CAPS are instructions
 """
+#EDITED BY VICKY IVOVA, AUGUST 2023
 
 import time
 
@@ -36,15 +37,16 @@ def run(gpu_id, resume_checkpoint, finetune, model_dir, resume, use_wandb, wandb
     os.makedirs(save_dir, exist_ok=True)
 
     all_train_sets = list()  # YOU CAN HAVE MULTIPLE LANGUAGES, OR JUST ONE. JUST MAKE ONE ConcatDataset PER LANGUAGE AND ADD IT TO THE LIST.
+    
+    #Abkhaz data handling, VICKY IVOVA, August 2023
 
     # =======================
     # =    Abkhaz Data      =
     # =======================
-    current_directory = os.getcwd()
-    print(current_directory)
+    corpus_directory = os.path.abspath("abkhaz_training")
     abkhaz_datasets = list()
     abkhaz_datasets.append(prepare_fastspeech_corpus(transcript_dict=build_path_to_transcript_dict_abkhaz(),
-                                                     corpus_dir="../../../abkhaz_training",
+                                                     corpus_dir=corpus_directory,
                                                      lang="ab"))  # CHANGE THE TRANSCRIPT DICT, THE NAME OF THE CACHE DIRECTORY AND THE LANGUAGE TO YOUR NEEDS
 
     all_train_sets.append(ConcatDataset(abkhaz_datasets))

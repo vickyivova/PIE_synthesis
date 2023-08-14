@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
-
+# Edited by VICKY IVOVA, AUGUST 2023
 
 import re
 import sys
 
 import torch
 from dragonmapper.transcriptions import pinyin_to_ipa
-#from phonemizer.backend import EspeakBackend
+#from phonemizer.backend import EspeakBackend -- no need for PIE or Abkhaz
 from pypinyin import pinyin
-#from cvutils import Phonemiser
 
 
 from Preprocessing.articulatory_features import generate_feature_table
@@ -141,7 +140,8 @@ class ArticulatoryCombinedTextFrontend:
             self.expand_abbreviations = convert_kanji_to_pinyin_mandarin
             if not silent:
                 print("Created a Mandarin-Chinese Text-Frontend")
-
+        
+        #VICKY IVOVA, AUGUST 2023
         elif language == "pie":
             self.g2p_lang = "pie"  # we don't use espeak for this case
             self.expand_abbreviations = lambda x: x
@@ -165,7 +165,8 @@ class ArticulatoryCombinedTextFrontend:
             self.expand_abbreviations = lambda x: x
             if not silent:
                 print("Created a Farsi Text-Frontend")
-                
+        
+        #VICKY IVOVA, AUGUST 2023       
         elif language == "ab":
             self.g2p_lang = "ab" #no espeak
             self.expand_abbreviations = lambda x: x
@@ -222,6 +223,7 @@ class ArticulatoryCombinedTextFrontend:
         elif lang == "vi":
             return "Đây là một câu phức tạp, nó thậm chí còn chứa một khoảng dừng."
         elif lang == "ab":
+            #VICKY IVOVA, AUGUST 2023
             return "aχa wa jaːnɨmɡɨltʼ, wbama !"
         else:
             print(f"No example sentence specified for the language: {lang}\n "
@@ -306,7 +308,8 @@ class ArticulatoryCombinedTextFrontend:
         return torch.Tensor(phones_vector, device=device)
 
     def pie_to_ipa(self, pie_text):
-        # Dictionary to map PIE symbols to IPA symbols
+        # ADDED BY VICKY IVOVA, AUGUST 2023
+        # Mapping PIE notation to IPA symbols instead of using a phonemizer
         pie_to_ipa = {
             "p": "p", "b": "b", "bʰ": "bh", "t": "t", "d": "d", "dʰ": "dh", "ḱ": "kʲ", "ǵ": "ɡʲ",
             "ǵʰ": "ɡʲh",  "kʷ": "kʷ", "gʷ": "ɡʷ", "gʷʰ": "ɡʷh", "s": "s", "h₁": "ʔ", "h₂": "ʕ",
@@ -316,11 +319,9 @@ class ArticulatoryCombinedTextFrontend:
             "ṑ": "oː", "H":"ʕ"
             }
 
-        # Convert PIE symbols to IPA symbols
         ipa_text = ""
         i = 0
         while i < len(pie_text):
-            # Check for two-letter PIE symbols first
             if i + 2 <= len(pie_text) and pie_text[i:i+2] in pie_to_ipa:
                 ipa_text += pie_to_ipa[pie_text[i:i+2]]
                 i += 2
@@ -335,7 +336,8 @@ class ArticulatoryCombinedTextFrontend:
         return ipa_text
 
     def abkhaz_to_ipa(self, abkhaz_text):
-        #p = Phonemiser('ab')
+        #VICKY IVOVA, AUGUST 2023
+        # For Abkhaz we change nothing as we already input it as IPA due to the nature of the phonemizing             method
         return abkhaz_text
 
     def get_phone_string(self, text, include_eos_symbol=True, for_feature_extraction=False, for_plot_labels=False):
@@ -413,11 +415,11 @@ class ArticulatoryCombinedTextFrontend:
             ("ɮ", "z"),  # lateral
             ('ɺ', 'ɾ'),  # lateral
             ('ʲ', 'j'),  # decomposed palatalization
-            ('ʷ', 'w'),  #decomposed labialization
-            ('ʰ', 'h'),  #decomposed aspiration, not optimal
-            ('ᶣ', 'w'),
-            ('ᵛ', 'w'),
-            ('ӷ', 'ʁ'),
+            ('ʷ', 'w'),  #decomposed labialization, VICKY IVOVA, AUGUST 2023
+            ('ʰ', 'h'),  #decomposed aspiration, not optimal, VICKY IVOVA, AUGUST 2023
+            ('ᶣ', 'w'),  #VICKY IVOVA, AUGUST 2023
+            ('ᵛ', 'w'),  #VICKY IVOVA, AUGUST 2023
+            ('ӷ', 'ʁ'),  # The Ab phonemizer misses this one, VICKY IVOVA, AUGUST 2023
             ('\u02CC', ""),  # secondary stress
             ('\u030B', "˥"),
             ('\u0301', "˦"),
@@ -585,8 +587,10 @@ def get_language_id(language):
     elif language == "pt-br":
         return torch.LongTensor([17])
     elif language == "pie":
+        #VICKY IVOVA, AUGUST 2023
         return torch.LongTensor([18])
     elif language == "ab":
+        #VICKY IVOVA, AUGUST 2023
         return torch.LongTensor([19])
 
 

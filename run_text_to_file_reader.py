@@ -14,7 +14,9 @@ def read_texts(model_id, sentence, filename, device="cpu", language="pie", speak
         sentence = [sentence]
     tts.read_to_file(text_list=sentence, file_location=filename)
     del tts
-
+    
+#ADDED BY VICKY IVOVA, AUGUST 2023
+#Used for command line inference
 def custom(version, model_id="MultiAbkhaz", exec_device="cpu", speed_over_quality=True, speaker_reference=None):
     os.makedirs("audios", exist_ok=True)
     file_name = input("\What should the file be named? (or 'exit')\n")
@@ -27,34 +29,12 @@ def custom(version, model_id="MultiAbkhaz", exec_device="cpu", speed_over_qualit
                 sentence=sentence,
                 filename=file_name,
                 device=exec_device,
-                language="ab",
+                language="pie",
                 speaker_reference=speaker_reference,
                 faster_vocoder=speed_over_quality)
 
-def the_raven(version, model_id="Meta", exec_device="cpu", speed_over_quality=True, speaker_reference=None):
-    os.makedirs("audios", exist_ok=True)
-
-    read_texts(model_id=model_id,
-               sentence=['Once upon a midnight dreary, while I pondered, weak, and weary,',
-                         'Over many a quaint, and curious volume of forgotten lore,',
-                         'While I nodded, nearly napping, suddenly, there came a tapping,',
-                         'As of someone gently rapping, rapping at my chamber door.',
-                         'Tis some visitor, I muttered, tapping at my chamber door,',
-                         'Only this, and nothing more.',
-                         'Ah, distinctly, I remember, it was in the bleak December,',
-                         'And each separate dying ember, wrought its ghost upon the floor.',
-                         'Eagerly, I wished the morrow, vainly, I had sought to borrow',
-                         'From my books surcease of sorrow, sorrow, for the lost Lenore,',
-                         'For the rare and radiant maiden, whom the angels name Lenore,',
-                         'Nameless here, for evermore.',
-                         'And the silken, sad, uncertain, rustling of each purple curtain',
-                         'Thrilled me, filled me, with fantastic terrors, never felt before.'],
-               filename=f"audios/the_raven_{version}.wav",
-               device=exec_device,
-               language="en",
-               speaker_reference=speaker_reference,
-               faster_vocoder=speed_over_quality)
-               
+#ADDED BY VICKY IVOVA, AUGUST 2023
+#Called in the app script              
 def custom_app(file_name, sentence, version="MetaBaseline", model_id="MultiAbkhaz", exec_device="cpu", speed_over_quality=True, speaker_reference=None):
     os.makedirs("audios", exist_ok=True)
     read_texts(model_id=model_id,

@@ -13,13 +13,15 @@ def limit_to_n(path_to_transcript_dict, n=40000):
     else:
         return path_to_transcript_dict
         
-
+#VICKY IVOVA, AUGUST 2023
 def build_path_to_transcript_dict_abkhaz():
+    rel_path_txt = os.path.abspath("abkhaz_training/txt")
+    rel_path_wav = os.path.abspath("abkhaz_training/wav")
     path_to_transcript = dict()
-    for transcript_file in os.listdir("../abkhaz_training/txt"):
-        with open("../abkhaz_training/txt/" + transcript_file, 'r', encoding='utf8') as tf:
+    for transcript_file in os.listdir(rel_path_txt):
+        with open(rel_path_txt + "/" + transcript_file, 'r', encoding='utf8') as tf:
             transcript = tf.read()
-        wav_path = "../abkhaz_training/wav/" + transcript_file.rstrip(".txt") + ".wav"
+        wav_path = rel_path_wav + "/" + transcript_file.rstrip(".txt") + ".wav"
         path_to_transcript[wav_path] = transcript
     return limit_to_n(path_to_transcript)
 
@@ -780,6 +782,6 @@ def build_path_to_transcript_dict_siwis_subset():
     return path_to_transcript
 
 
-if __name__ == '__main__':
-    ptt = build_path_to_transcript_dict_synpaflex_all()
-    print(ptt)
+#if __name__ == '__main__':
+    #ptt = build_path_to_transcript_dict_synpaflex_all()
+    #print(ptt)

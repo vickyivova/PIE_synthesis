@@ -3,7 +3,7 @@ import os
 
 import librosa.display as lbd
 import matplotlib.pyplot as plt
-#import sounddevice
+#import sounddevice -- NOT AVAILABLE IN HABROK
 import soundfile
 import torch
 
@@ -17,7 +17,7 @@ from TrainingInterfaces.Spectrogram_to_Embedding.StyleEmbedding import StyleEmbe
 #from Utility.storage_config import MODELS_DIR
 from Utility.utils import float2pcm
 
-MODELS_DIR = "/mount/src/pie_synthesis/Models"
+MODELS_DIR = os.path.abspath("Models") # So the Streamlit app can access it, VICKY IVOVA, August 2023
 
 class ToucanTTSInterface(torch.nn.Module):
 
@@ -288,7 +288,8 @@ class ToucanTTSInterface(torch.nn.Module):
         
         return wav
             
-        
+    #THE FOLLOWING FUNCTION REQUIRES A SOUND MODULE THAT IS UNAVAILABLE IN HABROK SO WE JUST COMMENT IT OUT
+    #VICKY IVOVA, AUGUST 2023
 
     # def read_aloud(self,
     #                text,
