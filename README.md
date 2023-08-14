@@ -27,7 +27,7 @@ python run_text_to_file_reader.py
 This will activate user input prompts where you can enter the name/path of the file that you want to save the synthesised speech (include .wav in the name)
 and enter the text you want synthesised. Only standard PIE notation is recognised by the model. You cam try this example sentence:
 
-**Dʰúɡh₂tēr toj dōm gʷegʷome.**
+**Dʰúɡh₂tēr toj dōm gʷegʷome.** 
 It means "Your daughter has come home."!
 
 It is more user friendly to use the web app with this domain to obtain synthesised speech with the model: https://piesynthesis.streamlit.app/
