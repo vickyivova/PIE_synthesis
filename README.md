@@ -17,7 +17,7 @@ source <path_to_where_you_want_your_env_to_be>/bin/activate
 
 pip install --no-cache-dir -r requirements.txt
 ```
-Since not the Abkhaz, nor the Proto-Indo-European preprocessing uses espeak-ng, you do not need to install it if you only use the toolkit for
+Do not load any other modules in the environment. Since not the Abkhaz, nor the Proto-Indo-European preprocessing uses espeak-ng, you do not need to install it if you only use the toolkit for
 PIE inference or to test the fine-tuning pipeline.
 
 Once you have activated the environment you can navigate towards the top level and run the following command to synthesise PIE from the command line:
