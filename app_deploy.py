@@ -10,6 +10,7 @@ import base64
 import random
 from run_text_to_file_reader import read_texts,custom_app
 
+
 #Setting the background
 def get_base64_of_bin_file(bin_file):
 	with open(bin_file, 'rb') as f:
@@ -33,7 +34,7 @@ def set_png_as_page_bg(png_file):
 set_png_as_page_bg("/mount/src/pie_synthesis/app_background.png")
 
 
-st.title("Synthesise PIE")
+st.set_page_config(page_title="Synthesise PIE", page_icon=":smiley:", layout="wide", theme="light")
 st.write("Bring to life the ancient extinct language from which most European languages evolved.\n Write down a Proto-Indo-European sentence in PIE standard notation or try the sample sentence. You can choose the model behind the synthesis: one trained on European languages (pre-trained) or one further fine-tuned on Abkhaz (fine-tuned). Hit 'Synthesise' and wait for your synthesised audio!")
 
 #Text input
