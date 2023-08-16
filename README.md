@@ -1,7 +1,8 @@
 # PIE_synthesis 📜🏺🗡️
 **Visit the web app:** https://piesynthesis.streamlit.app/
 
-This repository is almost entirely comprised of the original code of IMS-Toucan by Florian Lux and Julia Koch and Ngoc Thang Vu. 
+This repository is almost entirely comprised of the original code of IMS-Toucan by Florian Lux and Julia Koch and Ngoc Thang Vu. It also contains a folder `abkhaz_training` which has the Abkhaz data used for fine-tuning. It was acquired from Common Voice but it was preprocesssed to suit our pipeline. The speech of the speaker with most recording was isolated and the annotations were pre-phonemized using the tool from Baltoslav (https://baltoslav.eu/ipa/index.php?mova=en&j=ap&t).
+
 The changes made include:
 1. Adding preprocessing methods for Abkhaz and Proto-Indo-European
 2. Adjusting the provided fine-tuning script in order to fine-tune on Abkhaz data
